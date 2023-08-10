@@ -18,3 +18,31 @@ def Create(req):
 def GetData(req):
     if (req.method == "GET"):
         return HttpResponse(json.dumps({"data": array}))
+
+
+def UpdateData(req):
+    if req.method == "PATCH":
+        body = json.loads(req.body)
+        id = body['id']
+        for item in array:
+            if item['id'] == id:
+                item['available'] = 'yes'
+            else:
+                return HttpResponse(json.dumps({"msg": "Item is Not Present"}))
+    else:
+        return HttpResponse(json.dumps({"msg": "Invalid Request"}))
+    return HttpResponse(json.dumps({"msg": "Item Updated Succesfully"}))
+
+
+def DeleteData(req):
+    if req.method == "DELETE":
+        body = json.loads(req.body)
+        id = body['id']
+        for item in array:
+            if item['id'] == id:
+                array.remove(item)
+            else:
+                return HttpResponse(json.dumps({"msg": "Item is Not Present"}))
+    else:
+        return HttpResponse(json.dumps({"msg": "Invalid Request"}))
+    return HttpResponse(json.dumps({"msg": "Item Deleted Succesfully"}))

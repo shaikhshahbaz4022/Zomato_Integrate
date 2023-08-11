@@ -83,3 +83,12 @@ body {
   a:hover {
     color: #1565c0;
   }
+  #flex-direction{
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    
+  }
+  a{
+    color: #333;
+  }

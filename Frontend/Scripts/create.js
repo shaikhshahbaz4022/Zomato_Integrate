@@ -12,6 +12,7 @@ formele.addEventListener("submit", (e) => {
         price: price.value,
         available: availablityele.value,
     }
+    console.log(obj)
     const options = {
         method: "POST",
         headers: {
@@ -23,6 +24,7 @@ formele.addEventListener("submit", (e) => {
         .then(res => res.json())
         .then((data) => {
             console.log(data);
+            alert(data.msg)
         })
         .catch(e => console.log(e))
 })

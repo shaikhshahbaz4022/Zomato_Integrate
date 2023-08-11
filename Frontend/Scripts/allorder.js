@@ -5,6 +5,7 @@ function DisplayData() {
         .then((res) => res.json())
         .then((data) => {
             fetchAndRender(data.data)
+            console.log(data);
         })
         .catch((err) => console.log(err))
 }
@@ -54,6 +55,7 @@ function fetchAndRender(data) {
                 .then((data) => {
                     console.log(data);
                     DisplayData()
+                    alert(data.msg)
                 })
                 .catch((e) => console.log(e))
         })

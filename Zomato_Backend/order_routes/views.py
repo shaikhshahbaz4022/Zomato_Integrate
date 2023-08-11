@@ -30,8 +30,7 @@ def UpdateOrderStatus(req):
         for item in order:
             if item['id'] == id:
                 item['status'] = status
-            else:
-                return HttpResponse(json.dumps({"msg": "ID Not Found"}))
+
     else:
         return HttpResponse(json.dumps({"msg": "Invalid Request"}))
     return HttpResponse(json.dumps({"msg": "Item Updated Succesfully"}))

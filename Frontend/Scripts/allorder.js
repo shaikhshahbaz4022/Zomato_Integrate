@@ -25,21 +25,7 @@ function fetchAndRender(data) {
         available.innerText = `AVAILABLITY : ${ele.status}`
         let UPDATEele = document.createElement("select")
         UPDATEele.classList.add("selecttag")
-        UPDATEele.addEventListener("change", () => {
-            fetch(`https://zomato-backend-91qn.onrender.com/order/updateorder`, {
-                method: "PATCH",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ id: ele.id, status: UPDATEele.value })
-            })
-                .then((res) => res.json())
-                .then((data) => {
-                    console.log(data);
-                    DisplayData()
-                })
-                .catch((e) => console.log(e))
-        })
+
         let option12 = document.createElement("option")
         option12.innerText = "Select Status"
         let option1 = document.createElement("option")
@@ -56,10 +42,25 @@ function fetchAndRender(data) {
         option4.value = "recieved"
 
         UPDATEele.append(option12, option1, option2, option3, option4)
-
+        UPDATEele.addEventListener("change", () => {
+            fetch(`https://zomato-backend-91qn.onrender.com/order/updateorder`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ id: ele.id, status: UPDATEele.value })
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log(data);
+                    DisplayData()
+                })
+                .catch((e) => console.log(e))
+        })
 
         let Deleteele = document.createElement("button")
         Deleteele.innerText = "DELETE"
+        Deleteele.classList.add("delete-button")
         Deleteele.addEventListener("click", () => {
             fetch(`https://zomato-backend-91qn.onrender.com/order/deleteorder`, {
                 method: "DELETE",
@@ -72,6 +73,7 @@ function fetchAndRender(data) {
                 .then((data) => {
                     console.log(data);
                     DisplayData()
+                    alert(data.msg)
                 })
                 .catch((e) => console.log(e))
         })
@@ -84,19 +86,3 @@ function fetchAndRender(data) {
 
 }
 
-// UPDATEele.innerText = "UPDATE"
-// UPDATEele.addEventListener("click", () => {
-    // fetch(`https://zomato-backend-91qn.onrender.com/order/updateorder`, {
-    //     method: "PATCH",
-    //     headers: {
-    //         "Content-Type": "application/json"
-    //     },
-    //     body: JSON.stringify({ id: ele.id })
-    // })
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //         console.log(data);
-    //         DisplayData()
-    //     })
-    //     .catch((e) => console.log(e))
-// })

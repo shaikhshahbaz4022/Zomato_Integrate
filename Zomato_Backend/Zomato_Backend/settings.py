@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "zomato_routes",
-    "corsheaders"
+    "corsheaders",
+    "order_routes"
 ]
 
 MIDDLEWARE = [

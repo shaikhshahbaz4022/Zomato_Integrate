@@ -38,10 +38,10 @@ def UpdateOrderStatus(req):
 
 
 def DeleteOrderStatus(req):
-    if (req.method == "PATCH"):
+    if (req.method == "DELETE"):
         body = json.loads(req.body)
         id = body['id']
-    
+
         for item in order:
             if item['id'] == id:
 

@@ -1,7 +1,7 @@
 const container = document.getElementById("append")
 
 function DisplayData() {
-    fetch(`https://zomato-backend-vxit.onrender.com/crud/get`)
+    fetch(`https://zomato-backend-91qn.onrender.com/crud/get`)
         .then((res) => res.json())
         .then((data) => {
             fetchAndRender(data.data)
@@ -26,7 +26,7 @@ function fetchAndRender(data) {
         let UPDATEele = document.createElement("button")
         UPDATEele.innerText = "UPDATE"
         UPDATEele.addEventListener("click", () => {
-            fetch(`https://zomato-backend-vxit.onrender.com/crud/update`, {
+            fetch(`https://zomato-backend-91qn.onrender.com/crud/update`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json"
@@ -44,7 +44,7 @@ function fetchAndRender(data) {
         let Deleteele = document.createElement("button")
         Deleteele.innerText = "DELETE"
         Deleteele.addEventListener("click", () => {
-            fetch(`https://zomato-backend-vxit.onrender.com/crud/delete`, {
+            fetch(`https://zomato-backend-91qn.onrender.com/crud/delete`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json"

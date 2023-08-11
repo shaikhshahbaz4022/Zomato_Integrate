@@ -23,6 +23,8 @@ formele.addEventListener("submit", (e) => {
         .then(res => res.json())
         .then((data) => {
             console.log(data);
+            alert(data.msg)
+            window.location.href = "./allorders.html"
         })
         .catch(e => console.log(e))
 })

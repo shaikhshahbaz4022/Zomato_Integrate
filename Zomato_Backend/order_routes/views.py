@@ -46,8 +46,7 @@ def DeleteOrderStatus(req):
             if item['id'] == id:
 
                 order.remove(item)
-            else:
-                return HttpResponse(json.dumps({"msg": "ID Not Found"}))
+
     else:
         return HttpResponse(json.dumps({"msg": "Invalid Request"}))
     return HttpResponse(json.dumps({"msg": "Item Deleted Succesfully"}))
